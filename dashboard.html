@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Product Dashboard</h1>
+        <div class="controls">
+            <button id="loadProducts" class="load-btn">Load All Products</button>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search by title...">
+            </div>
+        </div>
+        <div id="loading" class="loading">Loading...</div>
+        
+        <table id="productTable" class="product-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Images</th>
+                    <th>
+                        Title
+                        <div class="sort-buttons">
+                            <button class="sort-btn" onclick="dashboard.sortBy('title', 'asc')">↑</button>
+                            <button class="sort-btn" onclick="dashboard.sortBy('title', 'desc')">↓</button>
+                        </div>
+                    </th>
+                    <th>
+                        Price
+                        <div class="sort-buttons">
+                            <button class="sort-btn" onclick="dashboard.sortBy('price', 'asc')">↑</button>
+                            <button class="sort-btn" onclick="dashboard.sortBy('price', 'desc')">↓</button>
+                        </div>
+                    </th>
+                    <th>Category</th>
+
+                </tr>
+            </thead>
+            <tbody id="productTableBody">
+            </tbody>
+        </table>
+        
+        <div class="pagination-container">
+            <div class="pagination-info">
+                <span id="paginationInfo">Showing 0 of 0 products</span>
+            </div>
+            <div class="pagination-controls">
+                <select id="pageSize" class="page-size-select">
+                    <option value="5">5 per page</option>
+                    <option value="10" selected>10 per page</option>
+                    <option value="20">20 per page</option>
+                </select>
+                <button id="prevPage" class="page-btn" disabled>Previous</button>
+                <span class="page-numbers" id="pageNumbers"></span>
+                <button id="nextPage" class="page-btn" disabled>Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
